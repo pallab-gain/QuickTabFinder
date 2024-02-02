@@ -19,9 +19,6 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "background": {
-    "service_worker": "backgroundscript.js"
-  },
   "commands": {
     "_execute_action": {
       "suggested_key": {
