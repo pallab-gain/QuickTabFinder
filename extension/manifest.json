@@ -7,7 +7,7 @@
     "tabs"
   ],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "index.html",
     "default_icon": {
       "16": "icon16.png",
       "48": "icon48.png",
@@ -27,7 +27,7 @@
         "chromeos": "Ctrl+Shift+P",
         "linux": "Ctrl+Shift+P"
       },
-      "description": "Open popup.html"
+      "description": "Open html page"
     }
   }
 }
