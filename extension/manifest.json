@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "QuickTabFinder",
-  "version": "1.0",
-  "description": "Find and list all opened tabs and their titles in Chrome.",
+  "version": "1.0.0",
+  "description": "A Chrome Extension for Effortless Tab Management",
   "permissions": [
     "tabs"
   ],
