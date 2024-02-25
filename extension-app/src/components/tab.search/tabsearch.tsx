@@ -29,7 +29,8 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
 
     const filterTabs = (tabs: Array<any>, searchText: string) => {
         const filterTabs = tabs.filter((tab) => {
-            return tab.title.toLowerCase().includes(searchText.toLowerCase())
+            const text = searchText.toLowerCase()
+            return tab.title?.toLowerCase().includes(text) || tab.url?.toLowerCase().includes(text)
         })
         setCurrentTabs(filterTabs)
         setSelectedIndex(0)

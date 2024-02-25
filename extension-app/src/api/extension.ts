@@ -14,7 +14,8 @@ const getAllTabs = (callback: (tabs: Array<Tab>) => void) => {
                 url: item.url,
                 active: item.active,
                 title: item.title,
-                favIconUrl: item.favIconUrl
+                favIconUrl: item.favIconUrl,
+                pendingUrl: item.pendingUrl,
             }
         })
         callback(tabList);
