@@ -7,7 +7,8 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Paper, TextField,
+    Paper,
+    TextField,
     Theme,
     useTheme
 } from "@mui/material";
@@ -77,7 +78,7 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
     return (
         <Paper elevation={0} style={styles.container}>
             <Grid xs={12} style={styles.listGrid}>
-                <TextField autoFocus={true} label="Search" variant="standard" fullWidth onChange={onChange}
+                <TextField autoFocus={true} variant="standard" fullWidth onChange={onChange}
                            onKeyDown={handleKeyDown}
                            value={searchText} tabIndex={0}/>
             </Grid>
@@ -102,10 +103,10 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
                                                         alt={tab.title}
                                                         src={tab.favIconUrl}
                                                         variant={"square"}
-                                                        sx={{width: 15, height: 15}}/>
+                                                        sx={{width: 20, height: 20}}/>
                                                 </ListItemAvatar> :
                                                 <ListItemIcon>
-                                                    <SettingsIcon sx={{width: 15, height: 15}}/>
+                                                    <SettingsIcon sx={{width: 20, height: 20}}/>
                                                 </ListItemIcon>
                                         }
                                         <ListItemText primary={tab.title} style={styles.text}/>
@@ -123,7 +124,7 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
 const getStyles = (theme: Theme) => {
     return {
         container: {
-            width: '22rem',
+            width: '25rem',
             padding: '0.5rem 0.5rem 0 0.5rem',
         },
         textGrid: {
@@ -134,7 +135,7 @@ const getStyles = (theme: Theme) => {
             'overflow-y': 'auto',
         },
         listItem: {
-            height: '1.3rem'
+            height: '2.7rem'
         },
         text: {
             'overflow': 'hidden',

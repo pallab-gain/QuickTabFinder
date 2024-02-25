@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "build:clean": "rm -rf ../extension/static && rm ../extension/index.html",
     "build:copy": "cp -rf build/static ../extension/ && cp build/index.html ../extension/index.html",
-    "build:extension": "npm run build && npm run build:clean && npm run build:copy"
+    "build:extension": "npm run build && npm run build:clean ; npm run build:copy"
   },
   "eslintConfig": {
     "extends": [
