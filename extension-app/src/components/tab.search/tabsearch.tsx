@@ -110,7 +110,9 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
                                                     <SettingsIcon sx={{width: 20, height: 20}}/>
                                                 </ListItemIcon>
                                         }
-                                        <ListItemText primary={tab.title} style={styles.text}/>
+                                        <ListItemText primary={tab.title}
+                                                      secondary={tab.url}
+                                                      style={styles.text}/>
                                     </ListItemButton>
                                 </span>
                             )
@@ -125,7 +127,7 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
 const getStyles = (theme: Theme) => {
     return {
         container: {
-            width: '25rem',
+            width: '30rem',
             padding: '0.5rem 0.5rem 0 0.5rem',
         },
         textGrid: {
@@ -139,6 +141,10 @@ const getStyles = (theme: Theme) => {
             height: '2.7rem'
         },
         text: {
+            'overflow': 'hidden',
+            'white-space': 'nowrap',
+        },
+        url: {
             'overflow': 'hidden',
             'white-space': 'nowrap',
         }

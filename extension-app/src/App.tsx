@@ -21,6 +21,20 @@ const theme = createTheme({
                     fontSize: '0.9rem'
                 }
             }
+        },
+        MuiListItemAvatar: {
+            styleOverrides: {
+                "root": {
+                    minWidth: '2.5rem'
+                }
+            }
+        },
+        MuiListItemIcon: {
+            styleOverrides: {
+                "root": {
+                    minWidth: '2.5rem'
+                }
+            }
         }
     },
 })
