@@ -8,16 +8,19 @@ const selectTab = (tabId: number) => {
 const getAllTabs = (callback: (tabs: Array<Tab>) => void) => {
     // @ts-ignore
     chrome?.tabs?.query?.({}, (tabs) => {
-        const tabList = [...tabs].map(item => {
-            return {
-                id: item.id,
-                url: item.url,
-                active: item.active,
-                title: item.title,
-                favIconUrl: item.favIconUrl,
-                pendingUrl: item.pendingUrl,
-            }
-        })
+        const tabList = [...tabs]
+            .sort((a, b) => (b?.lastAccessed ?? 0) - (a?.lastAccessed ?? 0))
+            .map(item => {
+                return {
+                    id: item.id,
+                    url: item.url,
+                    active: item.active,
+                    title: item.title,
+                    favIconUrl: item.favIconUrl,
+                    pendingUrl: item.pendingUrl,
+                }
+            })
+            .filter(item => !item.active)
         callback(tabList);
     })
     // generate a list of 5 dummy tabs

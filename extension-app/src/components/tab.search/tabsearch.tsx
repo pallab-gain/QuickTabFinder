@@ -1,15 +1,16 @@
 import React from "react";
 import {
     Avatar,
+    Box,
     Grid,
     List,
     ListItemAvatar,
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Paper,
+    Paper, Stack, styled,
     TextField,
-    Theme,
+    Theme, Tooltip,
     useTheme
 } from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -78,7 +79,7 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
 
     return (
         <Paper elevation={0} style={styles.container}>
-            <Grid xs={12} style={styles.listGrid}>
+            <Grid xs={12}>
                 <TextField autoFocus={true} variant="standard" fullWidth onChange={onChange}
                            onKeyDown={handleKeyDown}
                            value={searchText} tabIndex={0}/>
@@ -97,6 +98,7 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
                                                     }}
                                                     selected={index === selectedIndex}
                                                     onClick={() => handleSelect(index)}>
+
                                         {
                                             tab.favIconUrl ?
                                                 <ListItemAvatar>
@@ -120,6 +122,33 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
                     }
                 </List>
             </Grid>
+            <Grid xs={12} style={styles.boxGrid}>
+                <Box sx={{width: '30rem'}}>
+                    <Stack spacing={{xs: 1, sm: 1}} direction="row" useFlexGap flexWrap="wrap">
+                        {
+                            currentTabs.map((tab, index) => {
+                                return (
+                                    <Tooltip title={tab.title} placement={"top"} key={tab.id}>
+                                        {
+                                            tab.favIconUrl ?
+                                                <ListItemAvatar>
+                                                    <Avatar
+                                                        alt={tab.title}
+                                                        src={tab.favIconUrl}
+                                                        variant={"square"}
+                                                        sx={{width: 20, height: 20}}/>
+                                                </ListItemAvatar> :
+                                                <ListItemIcon>
+                                                    <SettingsIcon sx={{width: 20, height: 20}}/>
+                                                </ListItemIcon>
+                                        }
+                                    </Tooltip>
+                                )
+                            })
+                        }
+                    </Stack>
+                </Box>
+            </Grid>
         </Paper>
     );
 }
@@ -137,16 +166,21 @@ const getStyles = (theme: Theme) => {
             'maxHeight': '30rem',
             'overflow-y': 'auto',
         },
+        boxGrid: {
+            'minHeight': '5rem',
+            marginTop: '1rem'
+
+        },
         listItem: {
             height: '2.7rem'
         },
         text: {
             'overflow': 'hidden',
-            'white-space': 'nowrap',
+            'whiteSpace': 'nowrap',
         },
         url: {
             'overflow': 'hidden',
-            'white-space': 'nowrap',
+            'whiteSpace': 'nowrap',
         }
     }
 }
