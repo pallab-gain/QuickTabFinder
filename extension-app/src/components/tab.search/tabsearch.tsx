@@ -123,31 +123,30 @@ const TabSearch = (props: { tabs: Array<Tab> }) => {
                 </List>
             </Grid>
             <Grid xs={12} style={styles.boxGrid}>
-                <Box sx={{width: '30rem'}}>
-                    <Stack spacing={{xs: 1, sm: 1}} direction="row" useFlexGap flexWrap="wrap">
-                        {
-                            currentTabs.map((tab, index) => {
-                                return (
-                                    <Tooltip title={tab.title} placement={"top"} key={tab.id}>
-                                        {
-                                            tab.favIconUrl ?
-                                                <ListItemAvatar>
-                                                    <Avatar
-                                                        alt={tab.title}
-                                                        src={tab.favIconUrl}
-                                                        variant={"square"}
-                                                        sx={{width: 20, height: 20}}/>
-                                                </ListItemAvatar> :
-                                                <ListItemIcon>
-                                                    <SettingsIcon sx={{width: 20, height: 20}}/>
-                                                </ListItemIcon>
-                                        }
-                                    </Tooltip>
-                                )
-                            })
-                        }
-                    </Stack>
-                </Box>
+                {
+                    currentTabs.map((tab, index) => {
+                        return (
+                            <div style={styles.listItemInGridView}>
+                                <Tooltip title={tab.title} placement={"top"} key={tab.id}
+                                         onClick={() => handleSelect(index)}>
+                                    {
+                                        tab.favIconUrl ?
+                                            <ListItemAvatar>
+                                                <Avatar
+                                                    alt={tab.title}
+                                                    src={tab.favIconUrl}
+                                                    variant={"square"}
+                                                    sx={{width: 20, height: 20}}/>
+                                            </ListItemAvatar> :
+                                            <ListItemIcon>
+                                                <SettingsIcon sx={{width: 20, height: 20}}/>
+                                            </ListItemIcon>
+                                    }
+                                </Tooltip>
+                            </div>
+                        )
+                    })
+                }
             </Grid>
         </Paper>
     );
@@ -167,9 +166,10 @@ const getStyles = (theme: Theme) => {
             'overflow-y': 'auto',
         },
         boxGrid: {
-            'minHeight': '5rem',
-            marginTop: '1rem'
-
+            minHeight: '5rem',
+            marginTop: '1rem',
+            display: 'flex',
+            'flex-wrap': 'wrap',
         },
         listItem: {
             height: '2.7rem'
@@ -181,6 +181,9 @@ const getStyles = (theme: Theme) => {
         url: {
             'overflow': 'hidden',
             'whiteSpace': 'nowrap',
+        },
+        listItemInGridView: {
+            cursor: 'pointer'
         }
     }
 }
